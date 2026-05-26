@@ -216,7 +216,7 @@ actions={
         try {
 
           const token = localStorage.getItem("accessToken");
-          const res = await fetch("/api/questions/import", {
+          const res = await fetch(`${import.meta.env.VITE_API_URL}/api/questions/import`,{
             method: "POST",
             headers: {
               "Content-Type": "application/json",

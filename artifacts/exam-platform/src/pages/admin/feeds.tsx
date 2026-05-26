@@ -31,7 +31,7 @@ async function uploadImage(file: File): Promise<string> {
   const formData = new FormData();
   formData.append("image", file);
   const token = localStorage.getItem("accessToken");
-  const res = await fetch("/api/upload", {
+  const res = await fetch("${import.meta.env.VITE_API_URL}/api/upload", {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
     body: formData,

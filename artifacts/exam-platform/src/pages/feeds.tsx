@@ -159,7 +159,7 @@ export default function FeedsPage() {
                         try {
 
                           await fetch(
-                            `/api/feeds/${feed.id}/like`,
+                            `${import.meta.env.VITE_API_URL}/api/feeds/${feed.id}/like`,
                             {
                               method: "POST",
                               credentials: "include",
@@ -211,7 +211,7 @@ export default function FeedsPage() {
                         try {
 
                           await fetch(
-                            `/api/feeds/${feed.id}/share`,
+                            `${import.meta.env.VITE_API_URL}/api/feeds/${feed.id}/share`,
                             {
                               method: "POST",
                               credentials: "include",
