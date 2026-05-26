@@ -1,0 +1,660 @@
+# MASTER PROMPT — BUILD COMPLETE AI EXAM PLATFORM FROM SCRATCH (PRODUCTION SAFE)
+
+Build a COMPLETE production-grade online examination platform from scratch similar to:
+
+* Testbook
+* Oliveboard
+* Adda247
+* PracticeMock
+
+The platform is mainly for:
+
+* SSC
+* RRB
+* Banking
+* UPSC
+* Government Exams
+* Custom Exams
+
+IMPORTANT:
+This project must be:
+
+* Fully scalable
+* Production-ready
+* Cloud-based
+* Secure
+* Mobile responsive
+* PostgreSQL based
+* Cloudinary based
+* Netlify compatible
+* Render compatible
+
+DO NOT use:
+
+* Local storage
+* uploads folder
+* local filesystem
+* hardcoded localhost URLs
+
+===========================================================
+STRICT TECH STACK (MANDATORY)
+=============================
+
+Frontend:
+
+* React
+* TypeScript
+* Vite
+* TailwindCSS
+* Shadcn UI
+* React Query
+* React Hook Form
+* Zod validation
+* Framer Motion
+
+Backend:
+
+* Node.js
+* Express.js
+* TypeScript
+* Drizzle ORM
+
+Database:
+
+* PostgreSQL ONLY
+
+Authentication:
+
+* JWT Access Token
+* Refresh Token
+
+File Storage:
+
+* Cloudinary ONLY
+
+Deployment:
+
+* Frontend → Netlify
+* Backend → Render
+* Database → Neon PostgreSQL / Supabase PostgreSQL
+
+===========================================================
+PROJECT ARCHITECTURE
+====================
+
+Create clean scalable monorepo architecture.
+
+Structure:
+
+/artifacts
+/exam-platform
+/api-server
+
+/lib
+/db
+/api-client
+/api-client-react
+
+===========================================================
+VERY IMPORTANT PRODUCTION RULES
+===============================
+
+The application MUST:
+
+* Work in LOCAL development
+* Work in PRODUCTION deployment
+* Never depend on local filesystem
+* Never use uploads folder
+* Never use local storage for files
+* Never break after deployment
+* Use environment variables correctly
+* Avoid CORS issues
+* Avoid TypeScript build errors
+* Avoid hydration issues
+* Avoid import/export mismatches
+* Avoid broken file downloads
+* Avoid corrupted PDF previews
+* Preserve uploaded file extensions
+* Work safely in production
+
+===========================================================
+ROLE-BASED AUTHENTICATION
+=========================
+
+Implement ONLY:
+
+1. Admin Login
+2. Student Login
+
+Login Method:
+
+* Email
+* Password
+
+DO NOT implement:
+
+* Google login
+* OAuth
+* Social login
+
+Roles:
+
+* ADMIN
+* STUDENT
+
+===========================================================
+USER REGISTRATION SYSTEM
+========================
+
+Implement:
+
+* Student signup
+* Student login
+* Admin login
+* JWT authentication
+* Password hashing
+* Refresh tokens
+* Protected routes
+* Session persistence
+
+===========================================================
+FULL ADMIN PANEL (MANDATORY)
+============================
+
+Create COMPLETE admin dashboard.
+
+Admin can:
+
+===========================================================
+EXAM MANAGEMENT
+===============
+
+* Create exams
+* Edit exams
+* Delete exams
+* Publish/unpublish exams
+* Configure exam duration
+* Configure sectional timers
+* Add instructions
+* Add negative marking
+* Activate/deactivate exams
+
+Exam fields:
+
+* title
+* description
+* examType
+* duration
+* totalMarks
+* negativeMarks
+* instructions
+* active/inactive
+* startDate
+* endDate
+
+===========================================================
+SECTION MANAGEMENT
+==================
+
+Admin can create sections like:
+
+* Reasoning
+* Quantitative Aptitude
+* English
+* General Awareness
+* Computer Knowledge
+* Any custom section
+
+===========================================================
+TOPIC MANAGEMENT
+================
+
+Admin can create topics like:
+
+* Blood Relations
+* Coding Decoding
+* Seating Arrangement
+* Percentage
+* Profit & Loss
+* Error Spotting
+
+===========================================================
+QUESTION MANAGEMENT SYSTEM
+==========================
+
+Admin must be able to:
+
+* Add questions manually
+* Edit questions
+* Delete questions
+* Bulk upload questions
+* Link questions to:
+
+  * Exam
+  * Section
+  * Subject
+  * Topic
+  * Topic mock
+  * Quiz
+
+Question fields:
+
+* questionText
+* optionA
+* optionB
+* optionC
+* optionD
+* correctAnswer
+* explanation
+* marks
+* negativeMarks
+* difficulty
+* year
+* sectionId
+* subjectId
+* topicId
+* examId
+
+===========================================================
+QUESTION IMPORT SYSTEM
+======================
+
+Admin uploads:
+
+* PDF
+* DOCX
+* TXT
+
+System extracts:
+
+* Questions
+* Options
+* Correct answers
+* Explanations
+
+Use:
+
+* pdf-parse
+* mammoth
+
+===========================================================
+TOPIC-WISE MOCK TEST SYSTEM
+===========================
+
+Example:
+
+Reasoning
+→ Blood Relations
+→ Topic Mock
+
+Quantitative Aptitude
+→ Percentage
+→ Topic Mock
+
+Features:
+
+* Topic-wise exams
+* Topic timers
+* Topic analytics
+* Topic explanations
+* Topic leaderboard
+* Topic performance tracking
+
+Admin can:
+
+* Create topic mock
+* Upload topic questions
+* Assign timer
+* Assign marks
+* Publish/unpublish topic mock
+
+Student can:
+
+* Attempt topic mock
+* View topic results
+* View explanations
+* Analyze weak topics
+
+===========================================================
+QUIZ SYSTEM
+===========
+
+Implement complete quiz module.
+
+Quiz types:
+
+* Daily quiz
+* Weekly quiz
+* Topic quiz
+* Practice quiz
+* Mini quiz
+
+Quiz features:
+
+* Timer
+* Instant results
+* Explanations
+* Leaderboard
+* Analytics
+* Rank system
+
+Admin can:
+
+* Create quiz
+* Upload quiz questions
+* Schedule quiz
+* Publish/unpublish quiz
+
+Student can:
+
+* Attempt quiz
+* View score
+* View leaderboard
+* View explanations
+
+===========================================================
+SECTIONAL TIMER SYSTEM
+======================
+
+Implement REAL competitive exam sectional timer system.
+
+Example:
+
+SSC CGL Exam
+Total Duration: 60 Minutes
+
+Sections:
+
+1. Reasoning → 15 mins
+2. Quantitative Aptitude → 15 mins
+3. English → 15 mins
+4. General Awareness → 15 mins
+
+Rules:
+
+* Each section has independent timer
+* User cannot manually increase section time
+* When section timer completes:
+
+  * Automatically move to next section
+* User CANNOT return to previous section after time ends
+* Final exam auto submits after all sections complete
+* Section transitions must be smooth
+* Timer progress must save in PostgreSQL
+
+===========================================================
+REAL EXAM ENGINE
+================
+
+Features:
+
+* Fullscreen mode
+* Section timers
+* Overall timer
+* Save & Next
+* Mark for review
+* Question palette
+* Auto save
+* Auto submit
+* Resume support
+* Real exam navigation
+
+===========================================================
+ANTI-CHEAT SYSTEM
+=================
+
+Rules:
+
+1. First tab switch:
+
+* warning popup
+
+2. Second tab switch:
+
+* auto submit exam
+
+Track:
+
+* tab changes
+* fullscreen exit
+* window blur
+* copy paste
+* right click
+* developer tools shortcuts
+
+Store violations in database.
+
+===========================================================
+PREVIOUS YEAR PAPERS SYSTEM
+===========================
+
+Admin can upload:
+
+* Previous year papers
+* PDF files
+* DOCX files
+* TXT files
+
+User panel MUST support:
+
+* View previous year papers
+* Download previous year papers
+* Open PDFs correctly
+* Download files with CORRECT extensions
+
+Requirements:
+
+* PDF → download as .pdf
+* TXT → download as .txt
+* DOCX → download as .docx
+
+===========================================================
+FILE STORAGE SYSTEM (VERY IMPORTANT)
+====================================
+
+Use Cloudinary ONLY.
+
+STRICT RULES:
+
+* DO NOT use local upload folders
+* DO NOT use filesystem storage
+* DO NOT store files locally
+* Store ONLY Cloudinary secure URLs in PostgreSQL
+
+Supported:
+
+* PDF
+* TXT
+* DOC
+* DOCX
+* Images
+
+Requirements:
+
+* Correct preview
+* Correct download
+* Correct MIME type
+* Correct file extension
+* Production-safe URLs
+
+Cloudinary requirements:
+
+* resource_type: "auto"
+* use_filename: true
+* unique_filename: false
+* overwrite: false
+
+Must avoid:
+
+* .pdf.pdf corruption
+* Broken previews
+* Broken downloads
+* Wrong extensions
+
+===========================================================
+RESULT SYSTEM
+=============
+
+After submission:
+Show:
+
+* Score
+* Accuracy
+* Correct answers
+* Wrong answers
+* Explanations
+* Time analysis
+* Section analysis
+* Topic analysis
+* Rank
+* Percentile
+
+===========================================================
+STUDENT DASHBOARD
+=================
+
+Student dashboard must show:
+
+* Active exams
+* Topic mocks
+* Quizzes
+* Previous attempts
+* Results
+* Weak topics
+* Analytics
+* Previous year papers
+
+===========================================================
+ADMIN DASHBOARD PAGES
+=====================
+
+Create:
+
+* Exams Management
+* Question Management
+* Topic Mock Management
+* Quiz Management
+* Previous Papers Management
+* User Management
+* Results Analytics
+* Section Management
+* Topic Management
+
+===========================================================
+DATABASE TABLES
+===============
+
+Create production-safe PostgreSQL schema.
+
+Tables:
+
+* users
+* roles
+* exams
+* sections
+* subjects
+* topics
+* topic_mocks
+* quizzes
+* quiz_questions
+* questions
+* attempts
+* answers
+* results
+* uploads
+* previous_year_papers
+* exam_violations
+
+===========================================================
+FRONTEND REQUIREMENTS
+=====================
+
+Use:
+
+* Responsive layouts
+* Modern dashboard
+* React Query
+* Error boundaries
+* Toasts
+* Skeleton loaders
+* Dark mode
+* Premium UI
+
+===========================================================
+TYPE SAFETY
+===========
+
+STRICT TYPESCRIPT:
+
+* no any types
+* proper DTOs
+* zod validation
+* generated API types
+
+===========================================================
+ENVIRONMENT VARIABLES
+=====================
+
+Frontend:
+
+* VITE_API_URL
+
+Backend:
+
+* DATABASE_URL
+* JWT_SECRET
+* CLOUDINARY_CLOUD_NAME
+* CLOUDINARY_API_KEY
+* CLOUDINARY_API_SECRET
+
+===========================================================
+DEPLOYMENT REQUIREMENTS
+=======================
+
+The application MUST:
+
+* Build successfully
+* Deploy successfully
+* Work on Netlify
+* Work on Render
+* Use PostgreSQL only
+* Use Cloudinary only
+* Never depend on localhost
+* Never use local uploads
+
+===========================================================
+FINAL REQUIREMENT
+=================
+
+Generate:
+
+* Complete frontend
+* Complete backend
+* PostgreSQL schema
+* Authentication
+* Role-based admin panel
+* Student dashboard
+* Sectional timer exam engine
+* Topic-wise mocks
+* Quiz system
+* Previous year paper system
+* PDF import system
+* Upload system
+* Result system
+* Anti-cheat system
+* Deployment configs
+* Docker configs
+* Production-safe architecture
+
+The platform must be:
+
+* Scalable
+* Secure
+* Cloud-based
+* Production ready
+* Mobile responsive
+* Render compatible
+* Netlify compatible
+* PostgreSQL based
+* Cloudinary based
+* Stable in development and production

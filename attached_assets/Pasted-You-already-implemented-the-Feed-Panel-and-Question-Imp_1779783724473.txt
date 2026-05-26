@@ -1,0 +1,123 @@
+You already implemented the Feed Panel and Question Import feature previously using the existing architecture.
+Now DO NOT rebuild anything from scratch and DO NOT change unrelated code.
+
+I am still facing issues and I want ONLY these issues fixed properly using the current implementation.
+
+====================================================
+ISSUE 1 — QUESTION IMPORT FAILING
+=================================
+
+Current problem:
+When importing questions from .txt file, it shows:
+"Call failed to import"
+
+This issue was already present before and it still exists.
+
+You previously said it was fixed, but the import is still failing.
+
+Now properly debug and fix the COMPLETE import flow.
+
+Requirements:
+
+* Fix backend API issue completely
+* Fix parser issues
+* Fix validation issues
+* Fix payload issues
+* Fix exam mapping issues
+* Fix OpenAPI mismatch issues if any
+* Fix generated hook issues if any
+* Fix request body parsing issues
+* Fix multipart/text parsing issues
+* Fix database insert issues
+* Fix relation mapping issues
+
+Very Important:
+
+* Imported questions MUST save correctly in PostgreSQL
+* Imported questions MUST appear inside selected exams accurately
+* Imported questions MUST work exactly like manually added questions
+* Imported questions MUST appear in exam engine properly
+* Imported questions MUST include:
+
+  * Question
+  * Options
+  * Correct answer
+  * Explanation
+  * Subject
+  * Topic
+  * Difficulty
+  * Section
+
+Do proper end-to-end debugging instead of partial fixes.
+
+====================================================
+ISSUE 2 — IMPORTED QUESTIONS NOT REFLECTING IN EXAMS
+====================================================
+
+Even after importing, questions are not properly attaching to exams.
+
+Fix the complete exam-question mapping flow.
+
+Requirements:
+
+* Imported questions must automatically link to selected exam
+* Questions must reflect in exam question list
+* Questions must appear while attempting exam
+* Questions count must update correctly
+* No orphan questions in database
+* Existing manual questions flow should remain untouched
+
+====================================================
+ISSUE 3 — FEED IMAGE HANDLING
+=============================
+
+In feed panel you asked for image link manually.
+
+I do NOT want manual image URL pasting.
+
+I want:
+
+* Admin uploads/selects image from device
+* Image should upload properly
+* Stored properly using existing backend architecture
+* Image should reflect automatically in user panel feed
+
+Very Important:
+
+* DO NOT use localStorage at any cost
+* DO NOT store images in browser storage
+* Use PostgreSQL + existing backend storage approach only
+* Follow existing architecture patterns already used in project
+
+Feed Requirements:
+
+* Admin uploads image from device
+* Feed post saves successfully
+* Feed reflects instantly in user panel
+* Edit/Delete should still work
+* Existing UI should not be disturbed
+
+====================================================
+STRICT RULES
+============
+
+* Do not rewrite project
+* Do not redesign UI
+* Do not refactor unrelated modules
+* Do not change auth flow
+* Do not break current functionality
+* Do not modify working manual question flow
+* Only debug and fix the existing implementation properly
+* Use existing architecture and patterns only
+* No localStorage usage anywhere
+* No temporary hacks
+* No dummy fixes
+* Do proper production-level fixes only
+
+I only want:
+
+1. Question import fully working
+2. Imported questions reflecting correctly in exams
+3. Feed image upload from device working properly
+
+Nothing beyond this.

@@ -1,0 +1,205 @@
+You have already built the entire ExamEdge platform successfully and everything is working perfectly.
+DO NOT modify, refactor, redesign, remove, or disturb any existing functionality, UI, APIs, authentication flow, routing, database structure, business logic, or working features.
+This task is ONLY for implementing the following SMALL ENHANCEMENTS exactly as requested.
+
+Very Important Rules:
+
+* Do not change existing code unnecessarily.
+* Do not break any current functionality.
+* Do not redesign any pages.
+* Do not modify existing auth logic.
+* Do not change existing exam engine behavior.
+* Do not change existing admin/user dashboards except for adding the requested features.
+* Do not replace any existing architecture.
+* Do not touch already working APIs unless strictly needed for integration.
+* Keep all existing coding patterns, folder structure, naming conventions, React Query usage, Express patterns, Drizzle ORM structure, and OpenAPI contract-first architecture exactly as currently implemented.
+* Only add the required features cleanly and minimally.
+* No dummy implementations.
+* No localStorage usage for storing images, feed data, text files, questions, or imported content.
+* Use PostgreSQL + Drizzle ORM exactly like the current architecture.
+* Store metadata/content in DB as previously implemented patterns.
+* Follow current backend/frontend architecture strictly.
+
+====================================================
+FEATURE 1 — FEED PANEL (ADMIN + USER)
+=====================================
+
+Implement a Feed/News Panel system similar to “VETTU NEWS”.
+
+Requirements:
+
+1. Add Feed Management in Admin Panel
+
+* Create a new section/page in admin panel called:
+  "Feed Panel" or "News Feed"
+* Admin should be able to:
+
+  * Create feed posts
+  * Upload/add image URL
+  * Add title
+  * Add description/content
+  * Set publish status
+  * Delete feed posts
+  * Edit feed posts
+  * View all feeds in table/cards
+
+2. User Panel Feed Display
+
+* Create feed/news section in user dashboard/homepage.
+* Whatever admin posts should automatically reflect in user panel.
+* Show:
+
+  * Image
+  * Title
+  * Description
+  * Created date
+* Display in modern card layout.
+* Feed should load dynamically from database.
+
+3. Database Requirements
+
+* Create proper PostgreSQL table using Drizzle ORM.
+* Use current schema architecture.
+* Include:
+
+  * id
+  * title
+  * description
+  * imageUrl
+  * isPublished
+  * createdAt
+  * updatedAt
+* Add proper relations/types if needed.
+
+4. API Requirements
+   Create proper REST APIs using current architecture:
+
+* GET feeds
+* GET single feed
+* CREATE feed
+* UPDATE feed
+* DELETE feed
+
+5. OpenAPI + Codegen
+
+* Update OpenAPI spec properly.
+* Run Orval codegen patterns correctly.
+* Frontend must use generated hooks only.
+* Do not use raw fetch calls.
+
+6. Image Handling
+
+* DO NOT use localStorage.
+* DO NOT store images in browser.
+* Store only image URLs in PostgreSQL.
+* Follow already existing image URL approach used in papers section.
+
+====================================================
+FEATURE 2 — QUESTION IMPORT FROM .TXT
+=====================================
+
+Current manual question adding already exists.
+
+DO NOT REMOVE OR BREAK existing manual question adding.
+
+ONLY add OPTIONAL feature:
+"Import Questions from TXT"
+
+Requirements:
+
+1. In Questions Section (Admin Panel)
+
+* Keep existing manual question form exactly as it is.
+* Add an optional button:
+  "Import Questions (.txt)"
+
+2. TXT Import Flow
+   Admin uploads/selects a .txt file.
+
+The .txt file may contain:
+
+* Question
+* Options
+* Correct answer
+* Explanation
+* Subject
+* Topic
+* Difficulty
+* Section
+
+3. Parsing
+   Implement robust parser for .txt structure.
+
+Questions imported from TXT should:
+
+* Be stored properly in PostgreSQL
+* Reflect inside selected exams
+* Work exactly like manually created questions
+* Be fully compatible with existing exam engine
+
+4. Import Mapping
+   Allow selecting:
+
+* Exam
+* Subject
+* Topic
+  before import if needed.
+
+Imported questions must automatically attach to selected exams.
+
+5. Database
+
+* Store parsed questions using existing question schema.
+* No temporary localStorage.
+* No frontend-only storage.
+* Persist everything in PostgreSQL.
+
+6. Backend
+
+* Add backend parser service/helper cleanly.
+* Follow existing route/service structure.
+* Add validation using Zod.
+* Add proper error handling.
+
+7. Frontend
+
+* Add import UI minimally without disturbing current UI.
+* Keep existing question management untouched.
+* Add progress/loading/error handling.
+
+8. File Handling
+
+* Do not store .txt file in localStorage.
+* Do not permanently store raw file unnecessarily.
+* Parse and save structured data into PostgreSQL.
+
+====================================================
+STRICT IMPLEMENTATION RULES
+===========================
+
+* Do not disturb existing codebase.
+* Do not modify unrelated files.
+* Do not refactor working modules.
+* Do not change authentication.
+* Do not redesign layouts.
+* Do not alter routing structure unnecessarily.
+* Do not break OpenAPI/codegen flow.
+* Do not replace React Query patterns.
+* Do not remove existing manual question functionality.
+* Only extend functionality safely.
+* Maintain full backward compatibility.
+
+====================================================
+EXPECTED OUTPUT
+===============
+
+Implement only:
+
+1. Feed/News Panel
+2. TXT Question Import Feature
+
+Nothing else beyond these enhancements.
+No unnecessary changes.
+No experimental refactors.
+No architecture replacement.
+Everything should integrate cleanly into existing ExamEdge platform.

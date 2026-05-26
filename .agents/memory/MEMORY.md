@@ -1,0 +1,1 @@
+- [ExamEdge build decisions](examedge-build.md) — JWT in localStorage, API rebuild required after route changes, no file upload (URL-only papers)

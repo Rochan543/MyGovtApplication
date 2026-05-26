@@ -1,0 +1,127 @@
+Do NOT use uploads folder storage, local file storage, localStorage, disk storage, or temporary filesystem storage anywhere.
+
+The previous implementation using multer disk storage and `/uploads` folder is NOT acceptable for production architecture.
+
+I want proper database-based storage architecture only using PostgreSQL and existing project patterns.
+
+Very Important:
+
+* Do NOT rewrite existing codebase
+* Do NOT disturb working functionality
+* Do NOT redesign UI
+* Do NOT change auth flow
+* Do NOT refactor unrelated modules
+* Only replace the incorrect storage implementation cleanly
+
+====================================================
+ISSUE 1 — TXT IMPORT STORAGE
+============================
+
+Current implementation:
+
+* .txt files are being uploaded/stored temporarily in uploads folder using multer disk storage.
+
+This is NOT what I want.
+
+Required Fix:
+
+* Do NOT store imported .txt files in uploads folder
+* Do NOT use filesystem storage
+* Do NOT use local disk
+* Do NOT use localStorage
+
+Correct Production Requirement:
+
+* Read the uploaded .txt file content directly in backend memory/buffer
+* Parse the content immediately
+* Store only structured question data into PostgreSQL using existing question schema
+* No raw file persistence needed
+
+Implementation Requirements:
+
+* Use memory-based upload handling only if upload middleware is needed
+* Convert txt buffer → UTF-8 string
+* Parse questions
+* Insert structured records into PostgreSQL
+* Link imported questions correctly with:
+
+  * Exams
+  * Quizzes
+  * Topic mocks
+  * Subjects
+  * Topics
+  * Sections
+
+Very Important:
+
+* Imported questions MUST reflect in exams correctly
+* Imported questions MUST behave exactly like manual questions
+* No orphan records
+* No filesystem dependency
+
+====================================================
+ISSUE 2 — FEED IMAGE STORAGE
+============================
+
+Current implementation:
+
+* Feed images are stored in uploads folder and served statically.
+
+This is NOT acceptable.
+
+Required Fix:
+
+* Do NOT use uploads folder
+* Do NOT use disk storage
+* Do NOT use localStorage
+* Do NOT use static filesystem serving
+
+Correct Requirement:
+Use PostgreSQL database storage architecture.
+
+Implementation Options:
+
+* Store image binary/blob in PostgreSQL
+  OR
+* Store base64/image bytes properly in DB
+  OR
+* Use existing DB-backed architecture pattern already present in project
+
+Requirements:
+
+* Admin selects image from device
+* Image is saved through backend API
+* Image data persists in PostgreSQL
+* Feed image reflects properly in user panel
+* Edit/Delete should continue working
+* No filesystem dependency
+
+====================================================
+STRICT ARCHITECTURE RULES
+=========================
+
+* Keep current architecture intact
+* Keep OpenAPI flow intact
+* Keep Orval generated hooks intact
+* Keep React Query patterns intact
+* Keep existing manual question flow intact
+* Only replace incorrect storage implementation
+* No unnecessary refactors
+* No breaking changes
+* No code rewrites
+
+====================================================
+EXPECTED FINAL RESULT
+=====================
+
+1. TXT import works correctly
+2. Imported questions store directly into PostgreSQL
+3. Imported questions reflect correctly in exams
+4. Feed images upload from device correctly
+5. Feed images persist inside PostgreSQL
+6. No uploads folder usage
+7. No localStorage usage
+8. No filesystem dependency
+9. Existing project remains completely stable
+
+Implement only these fixes cleanly and minimally.

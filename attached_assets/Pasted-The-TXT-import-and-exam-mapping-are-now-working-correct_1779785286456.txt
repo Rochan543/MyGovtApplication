@@ -1,0 +1,106 @@
+The TXT import and exam mapping are now working correctly, but there are still 2 remaining issues that need proper fixes without disturbing existing functionality.
+
+DO NOT rewrite anything.
+DO NOT redesign UI.
+DO NOT refactor unrelated code.
+DO NOT break current working import flow.
+ONLY fix the below issues cleanly.
+
+====================================================
+ISSUE 1 — MULTIPLE QUESTIONS FROM TXT
+=====================================
+
+Current Problem:
+My `.txt` file contains 2 questions, but only 1 question is getting imported.
+
+The parser/import flow is still not correctly handling multiple question blocks.
+
+Required Fix:
+
+* Fix the parser logic properly
+* Ensure ALL questions inside the `.txt` file are imported
+* Support multiple question blocks correctly
+* Ensure separator handling works properly
+
+Parser should correctly support patterns like:
+
+* Q:
+* Q.
+* Question:
+* A)
+* A.
+* A:
+* Correct Answer:
+* Ans:
+* Explanation:
+
+---
+
+* Empty line separators
+
+Requirements:
+
+* Every valid question block must be parsed
+* Every parsed question must insert into PostgreSQL
+* All imported questions must appear in exams correctly
+* No partial imports
+* No skipped valid questions
+* No duplicate inserts
+* No broken mappings
+
+Very Important:
+Do NOT change the existing working import flow unnecessarily.
+Only fix the parser logic for handling multiple questions properly.
+
+====================================================
+ISSUE 2 — FEED PANEL FORM ERROR
+===============================
+
+Current Runtime Error:
+
+useFormField should be used within <FormField>
+
+Error location:
+src/components/ui/form.tsx
+
+Root Cause:
+A FormLabel/FormControl/FormMessage component is being used outside of the required `<FormField>` wrapper in the Feed Panel implementation.
+
+Required Fix:
+
+* Fix the Feed form structure properly
+* Ensure every FormLabel/FormControl/FormMessage is wrapped correctly inside `<FormField>`
+* Follow existing shadcn/ui form architecture already used in project
+* Do NOT hack around the issue
+* Do NOT disable overlay
+* Do NOT suppress runtime errors
+
+Requirements:
+
+* Feed panel should open without errors
+* Create/Edit feed should work correctly
+* Image upload should continue working
+* Feed should reflect properly in user panel
+* Existing forms elsewhere should remain untouched
+
+====================================================
+STRICT RULES
+============
+
+* Do not redesign Feed UI
+* Do not rewrite form system
+* Do not touch unrelated forms
+* Do not break working import functionality
+* Do not refactor entire parser
+* Only fix the exact issues cleanly
+* Maintain existing architecture and coding patterns
+
+====================================================
+EXPECTED RESULT
+===============
+
+1. Multiple questions from `.txt` import correctly
+2. All imported questions appear in exams
+3. Feed panel opens without runtime errors
+4. Feed create/edit works properly
+5. Existing project remains stable
